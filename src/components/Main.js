@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchBar from './SearchBar'
-import SearchResult from './SearchResult'
+import SearchResults from './SearchResults'
 
 class Main extends Component {
 	constructor(props) {
@@ -44,7 +44,7 @@ class Main extends Component {
 		return(
 			<main className="App-Main">
 				<SearchBar onSearch={this.search}/>
-				<SearchResult results={this.state.cocktails}/>
+				<SearchResults results={this.state.cocktails}/>
 			</main>
 		)
 	}
