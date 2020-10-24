@@ -9,7 +9,9 @@ const SearchResults = (props) => {
 					<li key={c.idDrink}>
 						<SearchItem
 							name={c.strDrink}
-							img={c.strDrinkThumb}/>
+							id={c.idDrink}
+							img={c.strDrinkThumb}
+							showDetail={props.showDetail}/>
 					</li>
 				))
 			}
