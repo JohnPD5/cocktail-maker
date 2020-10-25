@@ -11,6 +11,7 @@ class Main extends Component {
 		this.search = this.search.bind(this)
 		this.getDetail = this.getDetail.bind(this)
 		this.setDetails = this.setDetails.bind(this)
+		this.back = this.back.bind(this)
 		this.state = {
 			view: "list",
 			cocktails: [],
@@ -89,6 +90,12 @@ class Main extends Component {
 		this.setState({currentCocktail: Object.assign({}, info)})
 	}
 
+	back() {
+		if(this.state.view !== "list") {
+			this.setState({view: "list"})
+		}
+	}
+
 	render() {
 		let view
 		if(this.state.view === "list") {
@@ -99,7 +106,7 @@ class Main extends Component {
 
 		return(
 			<main className="App-Main">
-				<SearchBar onSearch={this.search}/>
+				<SearchBar onSearch={this.search} onBack={this.back}/>
 				{view}
 			</main>
 		)
