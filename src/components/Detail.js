@@ -1,4 +1,5 @@
 import React from 'react'
+import '../style/Detail.css'
 
 const Detail = (props) => {
     let ingredients = []
@@ -17,8 +18,10 @@ const Detail = (props) => {
         <div id={props.info.id} className="detail">
             <img src={props.info.imgUrl} alt={props.info.name}/>
             <h3 className="detail__name">{props.info.name}</h3>
-            <span className="detail__type">{props.info.type}</span>
-            <span className="detail__glass">{props.info.glass}</span>
+            <div className="detail__info">
+                <span className="detail__type">{props.info.type}</span>
+                <span className="detail__glass">{props.info.glass}</span>
+            </div>
             <ul className="detail__ingredients">{ingredients}</ul>
             <span className="detail__instructions">{props.info.instructions}</span>
         </div>

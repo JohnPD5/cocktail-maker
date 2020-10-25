@@ -1,0 +1,42 @@
+.detail {
+    padding: 30px;
+}
+
+.detail img {
+    width: 500px;
+    border-radius: 10px;
+}
+
+.detail__name {
+    font-size: 22px;
+    margin: 20px 0 10px;
+    font-weight: 700;
+}
+
+.detail__info {
+    padding: 10px 0;
+}
+
+.detail__info .detail__type,
+.detail__info .detail__glass {
+    background-color: #dddddd;
+    border: 1px solid #cccc;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 0 5px;
+}
+
+.ingredient {
+    margin: 10px 0;
+}
+
+.ingredient__name {
+    margin-right: 7px;
+    font-weight: 700;
+}
+
+.detail__instructions {
+    display: block;
+    width: 50%;
+    margin: 20px auto 0;
+}

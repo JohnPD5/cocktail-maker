@@ -7,4 +7,5 @@
 .search-results__item {
     width: calc(25% - 30px);
     padding: 20px 15px;
+    cursor: pointer;
 }
