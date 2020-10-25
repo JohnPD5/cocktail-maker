@@ -1,0 +1,15 @@
+.search-bar {
+    margin: 10px 0;
+}
+
+.search-bar__text,
+.search-bar__submit {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar__submit {
+    margin-left: 7px;
+    background-color: #fff;
+}
