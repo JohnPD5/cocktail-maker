@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchItem = (props) => {
     return(
-        <div id={props.id} className="search-item" onClick={props.showDetail}>
+        <div id={props.id} className="search-item" onClick={props.getDetail}>
             <h3 className="search-item__name">{props.name}</h3>
             <img src={props.img} alt={props.name}/>
         </div>

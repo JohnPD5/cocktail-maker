@@ -11,7 +11,7 @@ const SearchResults = (props) => {
 							name={c.strDrink}
 							id={c.idDrink}
 							img={c.strDrinkThumb}
-							showDetail={props.showDetail}/>
+							getDetail={props.getDetail}/>
 					</li>
 				))
 			}

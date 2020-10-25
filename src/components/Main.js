@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
+import Detail from './Detail'
 
 class Main extends Component {
 	constructor(props) {
@@ -8,17 +9,16 @@ class Main extends Component {
 		this.cocktailDbApi = "https://www.thecocktaildb.com/api/json/v1/1/filter.php"
 		this.cocktailDetailApi = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php"
 		this.search = this.search.bind(this)
-		this.showDetail = this.showDetail.bind(this)
+		this.getDetail = this.getDetail.bind(this)
 		this.setDetails = this.setDetails.bind(this)
 		this.state = {
 			view: "list",
-			alcoholic: null,
-			ingredient: "",
 			cocktails: [],
 			currentCocktail: {
+				id: null,
 				name: "",
 				instructions: "",
-				imageUrl: "",
+				imgUrl: "",
 				ingredients: {}
 			},
 		}
@@ -42,7 +42,7 @@ class Main extends Component {
 		}
 	}
 
-	showDetail(e) {
+	getDetail(e) {
 		let targetItem = null
 		if(e.target.matches(".search-item")) {
 			targetItem = e.target
@@ -59,7 +59,7 @@ class Main extends Component {
 		this.setState({view: "detail"})
 	}
 
-	setDetails(data) {
+	getIngredients(data) {
 		const ingrNum = 15
 		let ingredients = {}
 
@@ -72,18 +72,35 @@ class Main extends Component {
 			}
 		}
 
-		console.log("name>>", data.strDrink)
-		console.log("ingredients>>", ingredients)
-		console.log("glass>>", data.strGlass)
-		console.log("type>>", data.strAlcoholic)
-		console.log("instructions>>", data.strInstructions)
+		return ingredients
+	}
+
+	setDetails(data) {
+		const info = {
+			id: data.idDrink,
+			name: data.strDrink,
+			imgUrl: data.strDrinkThumb,
+			type: data.strAlcoholic,
+			glass: data.strGlass,
+			ingredients: this.getIngredients(data),
+			instructions: data.strInstructions
+		}
+
+		this.setState({currentCocktail: Object.assign({}, info)})
 	}
 
 	render() {
+		let view
+		if(this.state.view === "list") {
+			view = ( <SearchResults results={this.state.cocktails} getDetail={this.getDetail}/> )
+		} else if(this.state.view === "detail") {
+			view = ( <Detail info={this.state.currentCocktail}/> )
+		}
+
 		return(
 			<main className="App-Main">
 				<SearchBar onSearch={this.search}/>
-				<SearchResults results={this.state.cocktails} showDetail={this.showDetail}/>
+				{view}
 			</main>
 		)
 	}
