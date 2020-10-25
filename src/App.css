@@ -1,0 +1,9 @@
+html, body {
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+}
+
+.App {
+    text-align: center;
+    padding: 50px 40px;
+}

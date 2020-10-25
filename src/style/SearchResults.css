@@ -1,0 +1,10 @@
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+}
+
+.search-results__item {
+    width: calc(25% - 30px);
+    padding: 20px 15px;
+}
