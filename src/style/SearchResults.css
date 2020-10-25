@@ -6,6 +6,8 @@
 
 .search-results__item {
     width: calc(25% - 30px);
-    padding: 20px 15px;
+    margin: 20px 15px;
     cursor: pointer;
+    background: rgb(39, 39, 39);
+    color: #fff;
 }

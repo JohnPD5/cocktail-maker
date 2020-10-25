@@ -4,7 +4,6 @@
 
 .detail img {
     width: 500px;
-    border-radius: 10px;
 }
 
 .detail__name {
@@ -21,7 +20,6 @@
 .detail__info .detail__glass {
     background-color: #dddddd;
     border: 1px solid #cccc;
-    border-radius: 5px;
     padding: 2px 5px;
     margin: 0 5px;
 }
