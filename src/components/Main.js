@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LazyLoad from 'vanilla-lazyload'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 import Detail from './Detail'
@@ -8,6 +9,7 @@ class Main extends Component {
 		super(props)
 		this.cocktailDbApi = "https://www.thecocktaildb.com/api/json/v1/1/filter.php"
 		this.cocktailDetailApi = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php"
+		this.lazyLoadInstance = new LazyLoad({})
 		this.search = this.search.bind(this)
 		this.getDetail = this.getDetail.bind(this)
 		this.setDetails = this.setDetails.bind(this)
@@ -27,6 +29,7 @@ class Main extends Component {
 
 	componentDidUpdate() {
 		console.log('INFO::ComponentUpdate', this.state)
+		this.lazyLoadInstance.update()
 	}
 
 	search(e) {
