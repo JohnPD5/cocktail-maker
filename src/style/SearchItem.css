@@ -1,7 +1,22 @@
-.search-item img {
+.search-item__img {
+    position: relative;
+}
+
+.search-item__img img {
     display: block;
     width: 100%;
     object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.search-item__img::before {
+    content: " ";
+    padding-top: 100%;
+    display: block;
+    position: relative;
 }
 
 .search-item__name {
