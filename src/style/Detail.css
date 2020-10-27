@@ -1,5 +1,9 @@
 .detail {
+    width: 75%;
     padding: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .detail img {
@@ -7,21 +11,34 @@
 }
 
 .detail__name {
-    font-size: 22px;
-    margin: 20px 0 10px;
+    font-size: 40px;
+    margin-bottom: 20px;
     font-weight: 700;
 }
 
 .detail__info {
+    text-align: left;
+    margin-left: 45px;
+    padding: 30px 20px;
+    background: rgba(31,31,31);
+    color: #fff;
+    flex: 0 0 calc(50% - 45px);
+}
+
+.detail__desc {
     padding: 10px 0;
 }
 
-.detail__info .detail__type,
-.detail__info .detail__glass {
+.detail__desc > span:not(:first-child) {
+    margin-left: 5px;
+}
+
+.detail__desc .detail__type,
+.detail__desc .detail__glass {
+    color: #000;
     background-color: #dddddd;
     border: 1px solid #cccc;
     padding: 2px 5px;
-    margin: 0 5px;
 }
 
 .ingredient {
@@ -35,6 +52,5 @@
 
 .detail__instructions {
     display: block;
-    width: 50%;
-    margin: 20px auto 0;
+    margin-top: 20px;
 }
