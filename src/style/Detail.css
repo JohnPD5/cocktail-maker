@@ -53,4 +53,5 @@
 .detail__instructions {
     display: block;
     margin-top: 20px;
+    line-height: 1.4;
 }

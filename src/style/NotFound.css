@@ -1,0 +1,21 @@
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.not-found__text {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.not-found__icon {
+    background-image: url("../images/no-cocktails.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}

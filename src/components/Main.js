@@ -3,6 +3,7 @@ import LazyLoad from 'vanilla-lazyload'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 import Detail from './Detail'
+import NotFound from './NotFound'
 
 class Main extends Component {
 	constructor(props) {
@@ -32,17 +33,22 @@ class Main extends Component {
 		this.lazyLoadInstance.update()
 	}
 
-	search(e) {
+	async search(e) {
 		e.preventDefault()
 		const form = e.target
 		const inputVal = form.querySelector('#search-bar__text').value.trim()
 
 		if(inputVal && inputVal !== "") {
 			const reqUrl = `${this.cocktailDbApi}?i=${inputVal}`
-			fetch(reqUrl)
-				.then(res => res.json())
-				.then(data => this.setState({cocktails: data.drinks, view: "list"}))
-				.catch(err => console.error(err))
+			const fetchData = await fetch(reqUrl)
+			const dataContentType = fetchData.headers.get("content-type")
+
+			if(dataContentType && dataContentType.indexOf("application/json") !== -1) {
+				const searchData = await fetchData.json()
+				this.setState({cocktails: searchData.drinks, view: "list"})
+			} else {
+				this.setState({cocktails: [], view: "404"})
+			}
 		}
 	}
 
@@ -105,6 +111,8 @@ class Main extends Component {
 			view = ( <SearchResults results={this.state.cocktails} getDetail={this.getDetail}/> )
 		} else if(this.state.view === "detail") {
 			view = ( <Detail info={this.state.currentCocktail}/> )
+		} else if(this.state.view === "404") {
+			view = ( <NotFound /> )
 		}
 
 		return(
