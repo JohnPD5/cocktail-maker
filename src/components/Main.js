@@ -47,7 +47,7 @@ class Main extends Component {
 				const searchData = await fetchData.json()
 				this.setState({cocktails: searchData.drinks, view: "list"})
 			} else {
-				this.setState({cocktails: [], view: "404"})
+				this.setState({view: "404"})
 			}
 		}
 	}

@@ -13,7 +13,15 @@ html, body {
 .App {
     position: relative;
     text-align: center;
-    padding: 50px 40px;
-    width: calc(100% - 80px);
-    height: calc(100% - 100px);
+    padding: 30px 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+}
+
+@media screen and (min-width: 1024px) {
+    .App {
+        padding: 50px 40px;
+        width: calc(100% - 80px);
+        height: calc(100% - 100px);
+    }
 }

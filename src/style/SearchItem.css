@@ -20,5 +20,11 @@
 }
 
 .search-item__name {
-    margin: 15px 0;
+    padding: 12px 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .search-item__name {
+        padding: 15px 0;
+    }
 }
